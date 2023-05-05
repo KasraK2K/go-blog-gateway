@@ -43,11 +43,9 @@ func main() {
 	// Router
 	routes.Routes(app)
 
-	func() {
-		port, exist := os.LookupEnv("PORT")
-		if !exist {
-			port = "3000"
-		}
-		log.Fatal(app.Listen(fmt.Sprintf(":%s", port)))
-	}()
+	port, exist := os.LookupEnv("PORT")
+	if !exist {
+		port = "3000"
+	}
+	log.Fatal(app.Listen(fmt.Sprintf(":%s", port)))
 }
